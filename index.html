@@ -671,4 +671,42 @@
       }
     });
   })();
+  <!-- CONTACT POPUP -->
+<div class="modalOverlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+  <div class="modal" role="document">
+    <div class="modalHeader">
+      <h3 class="modalTitle" id="contactModalTitle">Contact The Deep Ponder</h3>
+      <button class="modalClose" id="closeContactModal" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modalBody">
+      <form action="https://formspree.io/f/xzdazrrn" method="POST">
+        <div class="formGrid2">
+          <div>
+            <label for="contactName">Name</label>
+            <input id="contactName" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="contactEmail">Email</label>
+            <input id="contactEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <label for="contactSubject">Subject</label>
+        <input id="contactSubject" name="subject" type="text" required>
+
+        <label for="contactMessage">Message</label>
+        <textarea id="contactMessage" name="message" required></textarea>
+
+        <div class="modalActions">
+          <button class="modalBtn modalBtnPrimary" type="submit">Send message</button>
+          <button class="modalBtn" type="button" id="cancelContactModal">Cancel</button>
+        </div>
+
+        <p class="modalHint">Press Esc or click outside the box to close.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
 </script>
