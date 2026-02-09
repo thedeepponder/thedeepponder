@@ -342,6 +342,77 @@
   color:#0b1220; border:none;
 }
 
+.modalOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 9999;
+}
+.modalOverlay.isOpen{ display:flex; }
+
+.modal{
+  width: min(640px, 100%);
+  background: rgba(15,23,42,.95);
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+.modalHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 16px 16px 10px;
+}
+.modalTitle{ margin:0; font-size:18px; }
+.modalClose{
+  appearance:none;
+  border: 1px solid rgba(148,163,184,.25);
+  background: rgba(2,6,23,.25);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.modalBody{ padding: 0 16px 16px; color: var(--muted); }
+
+.formGrid2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px; }
+@media (max-width: 700px){ .formGrid2{ grid-template-columns: 1fr; } }
+
+.modalBody input, .modalBody textarea{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(148,163,184,.25);
+  background: rgba(2,6,23,.25);
+  color: var(--text);
+}
+.modalBody textarea{ min-height: 120px; resize: vertical; }
+
+.modalActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+.modalBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:14px;
+  font-weight:700;
+  border:1px solid rgba(148,163,184,.25);
+  background: rgba(2,6,23,.25);
+  color: var(--text);
+  cursor:pointer;
+}
+.modalBtnPrimary{
+  background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
+  color:#0b1220;
+  border:none;
+}
+.modalHint{ margin:10px 0 0; font-size:13px; color: var(--muted); }
 
   </style>
 </head>
@@ -708,5 +779,41 @@
     </div>
   </div>
 </div>
+  <script>
+  (function () {
+    const openBtn = document.getElementById('openContactModal');
+    const openHero = document.getElementById('openContactModalHero');
+    const modal = document.getElementById('contactModal');
+    const closeBtn = document.getElementById('closeContactModal');
+    const cancelBtn = document.getElementById('cancelContactModal');
+
+    if (!modal || !closeBtn) return;
+
+    function openModal(e){
+      if (e) e.preventDefault();
+      modal.classList.add('isOpen');
+      closeBtn.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modal.classList.remove('isOpen');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (openHero) openHero.addEventListener('click', openModal);
+
+    closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
+    });
+  })();
+</script>
+
 
 </script>
