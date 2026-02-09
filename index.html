@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Podcast Show</title>
+  <meta name="description" content="Official website for the podcast Your Podcast Show. Listen to episodes, read show notes, and subscribe." />
+  <meta property="og:title" content="Your Podcast Show" />
+  <meta property="og:description" content="Listen to episodes, read show notes, and subscribe." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#111827" />
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8;
+      --accent:#38bdf8; --accent2:#a78bfa; --border:rgba(148,163,184,.2);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(900px 500px at 15% 10%, rgba(56,189,248,.25), transparent 60%),
+                  radial-gradient(900px 500px at 90% 15%, rgba(167,139,250,.20), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      position:sticky; top:0; backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,18,32,.85), rgba(11,18,32,.35));
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    header .wrap{display:flex; align-items:center; justify-content:space-between; width:100%}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .brand strong{letter-spacing:.2px}
+    nav{display:flex; gap:14px; flex-wrap:wrap}
+    nav a{
+      text-decoration:none; color:var(--muted); padding:10px 12px; border-radius:12px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{color:var(--text); border-color:var(--border); background:rgba(15,23,42,.6)}
+    .hero{padding:44px 0 18px}
+    .heroGrid{
+      display:grid; grid-template-columns: 1.35fr .65fr; gap:22px;
+    }
+    @media (max-width: 900px){ .heroGrid{grid-template-columns: 1fr} header{position:static} }
+    .card{
+      background: rgba(15,23,42,.75);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroCard{padding:26px}
+    h1{margin:0 0 10px; font-size: clamp(30px, 4vw, 52px); line-height:1.04}
+    .tagline{color:var(--muted); font-size: 16px; line-height:1.6; margin:0 0 18px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px; text-decoration:none; font-weight:600;
+      border:1px solid var(--border); background:rgba(2,6,23,.25);
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
+      color:#0b1220; border:none;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .mini{padding:18px}
+    .mini h3{margin:0 0 8px}
+    .mini p{margin:0; color:var(--muted); line-height:1.6}
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:8px 10px; border-radius:999px;
+      background: rgba(2,6,23,.2);
+    }
+    section{padding:18px 0}
+    .sectionTitle{font-size:20px; margin:0 0 12px}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
+    @media (max-width: 900px){ .grid3{grid-template-columns: 1fr} }
+    .feature{padding:18px}
+    .feature h4{margin:0 0 6px}
+    .feature p{margin:0; color:var(--muted); line-height:1.6}
+    .episodes{padding:18px}
+    .episodesHeader{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    .episodesHeader p{margin:6px 0 0; color:var(--muted)}
+    .epList{display:grid; gap:12px; margin-top:14px}
+    .ep{
+      padding:14px; border-radius:16px; border:1px solid var(--border);
+      background: rgba(2,6,23,.25);
+      display:grid; gap:10px;
+    }
+    .epTop{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .epTitle{margin:0; font-weight:700}
+    .epMeta{color:var(--muted); font-size:13px}
+    .epDesc{margin:0; color:var(--muted); line-height:1.6}
+    .player{
+      width:100%; border:0; border-radius: 14px; overflow:hidden;
+      background: rgba(2,6,23,.35);
+    }
+    .about{padding:18px}
+    .aboutGrid{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
+    @media (max-width: 900px){ .aboutGrid{grid-template-columns: 1fr} }
+    .about p{color:var(--muted); line-height:1.75; margin:0}
+    .footer{
+      padding:26px 0 46px; color:var(--muted); font-size:14px;
+      border-top:1px solid var(--border); margin-top: 10px;
+    }
+    .k{color:var(--text)}
+    .smallLink{color:var(--muted); text-decoration:none}
+    .smallLink:hover{color:var(--text)}
+    .note{font-size:13px; color:var(--muted); margin-top:10px}
+    .sr-only{position:absolute;left:-9999px}
+    input, textarea{
+      width:100%; padding:12px 12px; border-radius:14px;
+      border:1px solid var(--border); background: rgba(2,6,23,.25);
+      color:var(--text);
+    }
+    label{display:block; margin:10px 0 8px; color:var(--muted); font-size:14px}
+    .contact{padding:18px}
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 900px){ .row2{grid-template-columns: 1fr} }
+    .formRow{margin-top:10px}
+    .formActions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .hint{color:var(--muted); font-size:13px; margin:8px 0 0}
+    .divider{height:1px; background:var(--border); margin:14px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Podcast home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <strong>Your Podcast Show</strong><br />
+          <span style="color:var(--muted); font-size:13px;">New episodes weekly</span>
+        </div>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#listen">Listen</a>
+        <a href="#episodes">Episodes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="card heroCard">
+          <h1>Stories, insights, and conversations you’ll want to replay.</h1>
+          <p class="tagline">
+            Replace this with a 1–2 sentence description of your show: who it’s for, what it covers,
+            and why it’s worth subscribing to.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="#listen">▶ Listen now</a>
+            <a class="btn" href="#episodes">Browse episodes</a>
+            <a class="btn" href="#contact">Sponsor / guest</a>
+          </div>
+
+          <p class="note">
+            Tip: If you have an Apple Podcasts / Spotify link, replace the buttons in “Listen” below.
+          </p>
+        </div>
+
+        <aside class="card mini">
+          <h3>Subscribe</h3>
+          <p>Get the show on your favorite app.</p>
+          <div class="pillRow" aria-label="Platforms">
+            <span class="pill">Apple Podcasts</span>
+            <span class="pill">Spotify</span>
+            <span class="pill">YouTube</span>
+            <span class="pill">RSS</span>
+          </div>
+          <div class="divider"></div>
+          <p><span class="k">Host:</span> Your Name</p>
+          <p><span class="k">Category:</span> Business / Tech / Culture</p>
+          <p><span class="k">Email:</span> you@domain.com</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="listen">
+      <h2 class="sectionTitle">Listen</h2>
+      <div class="card episodes" style="padding:18px;">
+        <div class="grid3">
+          <div class="feature card" style="box-shadow:none;">
+            <h4>Apple Podcasts</h4>
+            <p><a class="smallLink" href="#" target="_blank" rel="noreferrer">Add your link here →</a></p>
+          </div>
+          <div class="feature card" style="box-shadow:none;">
+            <h4>Spotify</h4>
+            <p><a class="smallLink" href="#" target="_blank" rel="noreferrer">Add your link here →</a></p>
+          </div>
+          <div class="feature card" style="box-shadow:none;">
+            <h4>YouTube</h4>
+            <p><a class="smallLink" href="#" target="_blank" rel="noreferrer">Add your link here →</a></p>
+          </div>
+        </div>
+        <p class="hint">If you don’t have platform links yet, publish your show via a free host (see Option B below) and use the RSS link.</p>
+      </div>
+    </section>
+
+    <section id="episodes">
+      <h2 class="sectionTitle">Latest episodes</h2>
+      <div class="card episodes">
+        <div class="episodesHeader">
+          <div>
+            <strong style="font-size:18px;">Episode feed</strong>
+            <p>Update titles, dates, and links. Add an embedded player if your host provides one.</p>
+          </div>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">RSS</a>
+        </div>
+
+        <div class="epList">
+          <article class="ep">
+            <div class="epTop">
+              <h3 class="epTitle">EP 12 — Put your episode title here</h3>
+              <div class="epMeta">Feb 1, 2026 • 42 min</div>
+            </div>
+            <p class="epDesc">2–3 lines of show notes: what listeners will learn, who the guest is, and key topics.</p>
+            <!-- Replace the iframe below with your podcast host embed code (Spotify, Buzzsprout, Acast, etc.) -->
+            <iframe class="player" title="Episode player" height="152" src="about:blank"></iframe>
+          </article>
+
+          <article class="ep">
+            <div class="epTop">
+              <h3 class="epTitle">EP 11 — Another episode title</h3>
+              <div class="epMeta">Jan 25, 2026 • 36 min</div>
+            </div>
+            <p class="epDesc">Short summary goes here. Mention 2–4 specific takeaways to improve clicks.</p>
+            <iframe class="player" title="Episode player" height="152" src="about:blank"></iframe>
+          </article>
+
+          <article class="ep">
+            <div class="epTop">
+              <h3 class="epTitle">EP 10 — Guest name / topic</h3>
+              <div class="epMeta">Jan 18, 2026 • 51 min</div>
+            </div>
+            <p class="epDesc">Short summary goes here. Add links to resources in the episode notes if you like.</p>
+            <iframe class="player" title="Episode player" height="152" src="about:blank"></iframe>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="sectionTitle">About the show</h2>
+      <div class="card about">
+        <div class="aboutGrid">
+          <div>
+            <p>
+              Write a tight description of the podcast:
+              The Deep Ponder is a podcast exploring deep ideas, meaningful conversations, and thoughtful perspectives on life, culture, and the human experience.
+
