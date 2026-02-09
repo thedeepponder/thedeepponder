@@ -127,9 +127,14 @@
     .epMeta{color:var(--muted); font-size:13px}
     .epDesc{margin:0; color:var(--muted); line-height:1.6}
     .player{
-      width:100%; border:0; border-radius: 14px; overflow:hidden;
-      background: rgba(2,6,23,.35);
-    }
+  width:100%;
+  aspect-ratio: 16 / 9;
+  border:0;
+  border-radius:14px;
+  overflow:hidden;
+  background:#000;
+}
+
     .about{padding:18px}
     .aboutGrid{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
     @media (max-width: 900px){ .aboutGrid{grid-template-columns: 1fr} }
