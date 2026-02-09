@@ -139,9 +139,40 @@
     .formActions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
     .hint{color:var(--muted); font-size:13px; margin:8px 0 0}
     .divider{height:1px; background:var(--border); margin:14px 0}
+    .topBanner{
+  width:100%;
+  background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.9));
+  color:#0b1220;
+  font-weight:600;
+  font-size:14px;
+}
+
+.topBanner .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 24px;
+  text-align:center;
+}
+
+.topBanner a{
+  color:#0b1220;
+  text-decoration:underline;
+  margin-left:6px;
+}
+
   </style>
 </head>
 <body>
+
+    <!-- TOP BANNER -->
+  <div class="topBanner">
+    <div class="wrap">
+      🎧 New episodes every week — listen on Spotify & YouTube
+      <a href="#listen">Listen now</a>
+    </div>
+  </div>
+
   <header>
     <div class="wrap">
       <a class="brand" href="#top" aria-label="Podcast home">
