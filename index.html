@@ -94,7 +94,7 @@
     .grid3{display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px}
     @media (max-width: 900px){ .grid3{grid-template-columns: 1fr} }
 .feature{
-  padding:10px;
+  padding:6px;
 }
     .feature.card{
   border-radius:16px;
@@ -103,11 +103,17 @@
   max-width: 820px;
   margin: 0 auto;
 }
+.feature.card{
+  min-height: unset;
+}
+.feature.card{
+  border-radius:14px;
+}
 
 
     .feature h4{margin:0 0 6px}
     .feature p{margin:0; color:var(--muted); line-height:1.6}
-    .episodes{padding:12px}
+    .episodes{padding:8px}
     .episodesHeader{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; flex-wrap:wrap}
     .episodesHeader p{margin:6px 0 0; color:var(--muted)}
     .epList{display:grid; gap:12px; margin-top:14px}
@@ -282,7 +288,7 @@
   transition: transform .15s ease, opacity .15s ease;
 }
 .platformLink{
-  padding: 4px;
+  padding: 0px;
 }
 .platformLogo:hover{
   transform: translateY(-4px) scale(1.04);
@@ -413,6 +419,11 @@
   border:none;
 }
 .modalHint{ margin:10px 0 0; font-size:13px; color: var(--muted); }
+.feature.card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
   </style>
 </head>
