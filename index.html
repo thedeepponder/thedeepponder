@@ -256,6 +256,26 @@
   color: var(--muted);
 }
 
+    .platformLink{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+
+.platformLogo{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.platformLogo:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
 
   </style>
 </head>
@@ -341,14 +361,36 @@
       <h2 class="sectionTitle">Listen</h2>
       <div class="card episodes" style="padding:18px;">
         <div class="grid3">
-          <div class="feature card" style="box-shadow:none;">
-            <h4>Spotify</h4>
-            <p><a class="smallLink" href="#" target="_blank" rel="noreferrer">https://open.spotify.com/show/6m5KWVuwZJxj13Eh9BsAtY</a></p>
-          </div>
-          <div class="feature card" style="box-shadow:none;">
-            <h4>YouTube</h4>
-            <p><a class="smallLink" href="#" target="_blank" rel="noreferrer">https://youtube.com/@thedeepponder?si=QyEgxo0nWZCRm5-J</a></p>
-          </div>
+         <div class="feature card" style="box-shadow:none;">
+  <h4>Spotify</h4>
+
+  <a class="platformLink"
+     href="https://open.spotify.com/show/6m5KWVuwZJxj13Eh9BsAtY"
+     target="_blank" rel="noreferrer">
+
+    <img src="Spotify.png"
+         alt="Listen on Spotify"
+         class="platformLogo">
+
+    <span class="sr-only">Listen on Spotify</span>
+  </a>
+</div>
+
+         <div class="feature card" style="box-shadow:none;">
+  <h4>YouTube</h4>
+
+  <a class="platformLink"
+     href="https://youtube.com/@thedeepponder?si=QyEgxo0nWZCRm5-J"
+     target="_blank" rel="noreferrer">
+
+    <img src="YouTube.png"
+         alt="Watch on YouTube"
+         class="platformLogo">
+
+    <span class="sr-only">Watch on YouTube</span>
+  </a>
+</div>
+ 
         </div>
         <p class="hint">If you don’t have platform links yet, publish your show via a free host (see Option B below) and use the RSS link.</p>
       </div>
