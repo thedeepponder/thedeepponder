@@ -522,10 +522,7 @@ html{ scroll-behavior: smooth; }
 
   if (openBtn && modal && closeBtn) {
     openBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('isOpen');
-      document.body.style.overflow = 'hidden';
-    });
+     
 
     function closeModal() {
       modal.classList.remove('isOpen');
@@ -547,18 +544,11 @@ html{ scroll-behavior: smooth; }
   <script>
   (function () {
     
-    const modal = document.getElementById('contactModal');
-    const closeBtn = document.getElementById('closeContactModal');
-    const cancelBtn = document.getElementById('cancelContactModal');
+   
 
     if (!openBtn || !modal || !closeBtn) return;
 
-    function openModal(e){
-      if (e) e.preventDefault();
-      modal.classList.add('isOpen');
-      closeBtn.focus();
-      document.body.style.overflow = 'hidden';
-    }
+
 
     function closeModal(){
       modal.classList.remove('isOpen');
@@ -566,7 +556,7 @@ html{ scroll-behavior: smooth; }
       openBtn.focus();
     }
 
-    openBtn.addEventListener('click', openModal);
+    
     closeBtn.addEventListener('click', closeModal);
     if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
 
@@ -804,13 +794,7 @@ html{ scroll-behavior: smooth; }
 
     if (!openBtn || !modal || !closeBtn) return;
 
-    function openModal(e) {
-      if (e) e.preventDefault();
-      modal.classList.add('isOpen');
-      closeBtn.focus();
-      document.body.style.overflow = 'hidden';
-    }
-
+   
     function closeModal() {
       modal.classList.remove('isOpen');
       document.body.style.overflow = '';
