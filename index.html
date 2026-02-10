@@ -189,6 +189,17 @@
   width:100%;
   display:block;
 }
+    <section id="contact">
+  <h2 class="sectionTitle">Contact</h2>
+
+  <div class="card contactCard">
+    <p class="contactLine">
+      Email us:
+      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
+    </p>
+  </div>
+</section>
+
 
     /* Listen Now popup */
 .modalOverlay{
@@ -322,8 +333,7 @@
   margin: 0;
 }
 /* Contact popup */
-.modalOverlay{ position:fixed; inset:0; background:rgba(0,0,0,.65); display:none; align-items:center; justify-content:center; padding:18px; z-index:9999; }
-.modalOverlay.isOpen{ display:flex; }
+
 
 .modal{ width:min(640px, 100%); background: rgba(15,23,42,.95); border:1px solid rgba(148,163,184,.25); border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.55); overflow:hidden; }
 .modalHeader{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 16px 10px; }
@@ -432,6 +442,53 @@
   align-items:center;
   justify-content:center;
 }
+html{ scroll-behavior: smooth; }
+
+/* Helps anchor scroll land below sticky header */
+#contact{ scroll-margin-top: 90px; }
+
+.contactCard{
+  padding:16px;
+}
+
+.contactLine{
+  margin:0;
+  font-size:16px;
+  color: var(--muted);
+}
+
+.contactEmail{
+  font-weight:800;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(56,189,248,.55);
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+/* Highlight when you scroll to #contact */
+#contact:target .contactCard{
+  animation: contactGlow 1.4s ease-in-out 1;
+  border-color: rgba(56,189,248,.6);
+  box-shadow: 0 0 0 1px rgba(56,189,248,.25), 0 16px 40px rgba(0,0,0,.45);
+}
+
+#contact:target .contactEmail{
+  animation: emailPulse 1.4s ease-in-out 1;
+  background: linear-gradient(135deg, rgba(56,189,248,.25), rgba(167,139,250,.18));
+}
+
+@keyframes contactGlow{
+  0%   { transform: translateY(0); box-shadow: none; }
+  35%  { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(56,189,248,.35), 0 18px 44px rgba(0,0,0,.55); }
+  100% { transform: translateY(0); box-shadow: 0 0 0 1px rgba(56,189,248,.25), 0 16px 40px rgba(0,0,0,.45); }
+}
+
+@keyframes emailPulse{
+  0%   { filter: brightness(1); }
+  35%  { filter: brightness(1.25); }
+  100% { filter: brightness(1); }
+}
 
   </style>
 </head>
@@ -523,46 +580,6 @@
   })();
 </script>
 
-<!-- CONTACT POPUP -->
-<div class="modalOverlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-  <div class="modal" role="document">
-    <div class="modalHeader">
-      <h3 class="modalTitle" id="contactModalTitle">Contact The Deep Ponder</h3>
-      <button class="modalClose" id="closeContactModal" type="button" aria-label="Close">✕</button>
-    </div>
-
-    <div class="modalBody">
-      <form action="https://formspree.io/f/xzdazrrn" method="POST">
-        <div class="formGrid2">
-          <div>
-            <label for="contactName">Name</label>
-            <input id="contactName" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div>
-            <label for="contactEmail">Email</label>
-            <input id="contactEmail" name="email" type="email" autocomplete="email" required>
-          </div>
-        </div>
-
-        <label for="contactSubject">Subject</label>
-        <input id="contactSubject" name="subject" type="text" required>
-
-        <label for="contactMessage">Message</label>
-        <textarea id="contactMessage" name="message" required></textarea>
-
-        <!-- Optional: subject line in your inbox -->
-        <input type="hidden" name="_subject" value="New message from The Deep Ponder website">
-
-        <div class="modalActions">
-          <button class="modalBtn modalBtnPrimary" type="submit">Send message</button>
-          <button class="modalBtn" type="button" id="cancelContactModal">Cancel</button>
-        </div>
-
-        <p class="modalHint">We’ll reply to the email address you provide.</p>
-      </form>
-    </div>
-  </div>
-</div>
 
   <!-- TOP IMAGE BANNER -->
   <img src="yt thumbnail.png"
@@ -591,7 +608,8 @@
         <a href="#listen">Listen</a>
         <a href="#episodes">Episodes</a>
         <a href="#about">About</a>
-      <a href="#" id="openContactModal">Contact</a>
+<a href="#contact">Contact</a>
+
 
 
       </nav>
@@ -814,76 +832,8 @@
       }
     });
   })();
-  <!-- CONTACT POPUP -->
-<div class="modalOverlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-  <div class="modal" role="document">
-    <div class="modalHeader">
-      <h3 class="modalTitle" id="contactModalTitle">Contact The Deep Ponder</h3>
-      <button class="modalClose" id="closeContactModal" type="button" aria-label="Close">✕</button>
-    </div>
-
-    <div class="modalBody">
-      <form action="https://formspree.io/f/xzdazrrn" method="POST">
-        <div class="formGrid2">
-          <div>
-            <label for="contactName">Name</label>
-            <input id="contactName" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div>
-            <label for="contactEmail">Email</label>
-            <input id="contactEmail" name="email" type="email" autocomplete="email" required>
-          </div>
-        </div>
-
-        <label for="contactSubject">Subject</label>
-        <input id="contactSubject" name="subject" type="text" required>
-
-        <label for="contactMessage">Message</label>
-        <textarea id="contactMessage" name="message" required></textarea>
-
-        <div class="modalActions">
-          <button class="modalBtn modalBtnPrimary" type="submit">Send message</button>
-          <button class="modalBtn" type="button" id="cancelContactModal">Cancel</button>
-        </div>
-
-        <p class="modalHint">Press Esc or click outside the box to close.</p>
-      </form>
-    </div>
-  </div>
-</div>
-  <script>
-  (function () {
   
-    const modal = document.getElementById('contactModal');
-    const closeBtn = document.getElementById('closeContactModal');
-    const cancelBtn = document.getElementById('cancelContactModal');
-
-    if (!modal || !closeBtn) return;
-
-    function openModal(e){
-      if (e) e.preventDefault();
-      modal.classList.add('isOpen');
-      closeBtn.focus();
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(){
-      modal.classList.remove('isOpen');
-      document.body.style.overflow = '';
-    }
-
-    if (openBtn) openBtn.addEventListener('click', openModal);
-    if (openHero) openHero.addEventListener('click', openModal);
-
-    closeBtn.addEventListener('click', closeModal);
-    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
-    });
-  })();
+ 
 </script>
 
 
