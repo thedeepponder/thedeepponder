@@ -13,21 +13,6 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#111827" />
   <style>
-    html{ scroll-behavior: smooth; }
-#contact{ scroll-margin-top: 90px; } /* helps with sticky header */
-
-#contact:target .contactCard{
-  animation: contactGlow 1.4s ease-in-out 1;
-  border-color: rgba(56,189,248,.6);
-  box-shadow: 0 0 0 1px rgba(56,189,248,.25), 0 16px 40px rgba(0,0,0,.45);
-}
-
-@keyframes contactGlow{
-  0%{ transform: translateY(0); }
-  35%{ transform: translateY(-2px); }
-  100%{ transform: translateY(0); }
-}
-
     :root{
       --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8;
       --accent:#38bdf8; --accent2:#a78bfa; --border:rgba(148,163,184,.2);
@@ -204,20 +189,16 @@
   width:100%;
   display:block;
 }
- </style>
-<section id="contact">
+    <section id="contact">
   <h2 class="sectionTitle">Contact</h2>
 
   <div class="card contactCard">
     <p class="contactLine">
       Email us:
-      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">
-        thedeepponder@yahoo.com
-      </a>
+      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
     </p>
   </div>
 </section>
-
 
 
     /* Listen Now popup */
@@ -526,16 +507,6 @@ html{ scroll-behavior: smooth; }
         <a class="listenBtn listenBtnPrimary"
            href="https://open.spotify.com/show/6m5KWVuwZJxj13Eh9BsAtY"
            target="_blank" rel="noreferrer">Spotify</a>
-<section id="contact">
-  <h2 class="sectionTitle">Contact</h2>
-
-  <div class="card contactCard">
-    <p class="contactLine">
-      Email us:
-      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
-    </p>
-  </div>
-</section>
 
         <a class="listenBtn"
            href="https://youtube.com/@thedeepponder?si=QyEgxo0nWZCRm5-J"
