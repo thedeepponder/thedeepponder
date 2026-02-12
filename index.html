@@ -300,13 +300,9 @@
 }
 
 .platformLogo{
-  max-width: 100%;
-  max-height: 110px;   /* controls vertical size */ 
-  width:auto;
+  width:150px;
   height:auto;
   object-fit:contain;
-   display: block;
-  margin: 0 auto;
   filter: drop-shadow(0 12px 28px rgba(0,0,0,.5));
   transition: transform .15s ease, opacity .15s ease;
 }
@@ -322,13 +318,11 @@
   transform: translateY(-2px);
   opacity: .9;
 }
-feature.card{
+.feature.card{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:10px;
-  min-height:160px;   /* keeps tiles compact */
-  overflow:hidden;    /* prevents image overflow */
+   padding:10px;        /* reduces vertical height */
 }
 .platformLink{
   padding: 6px;
