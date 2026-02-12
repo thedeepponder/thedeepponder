@@ -542,26 +542,7 @@ html{ scroll-behavior: smooth; }
 
 
   
-  if (openBtn && modal && closeBtn) {
-    openBtn.addEventListener('click', (e) => {
-     
-
-    function closeModal() {
-      modal.classList.remove('isOpen');
-      document.body.style.overflow = '';
-    }
-
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
-    });
-  }
-</script>
+ 
 
   <script>
   (function () {
@@ -636,15 +617,7 @@ html{ scroll-behavior: smooth; }
           <p class="tagline">
            The Deep Ponder is a podcast where we question everything. A place for exploring ideas, conversations, and perspectives that reward attention and reflection.
           </p>
-          <section id="contact">
-  <h2 class="sectionTitle">Contact</h2>
-  <div class="card contactCard">
-    <p class="contactLine">
-      Email us:
-      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
-    </p>
-  </div>
-</section>
+         
 
 
           <div class="ctaRow">
@@ -678,6 +651,11 @@ html{ scroll-behavior: smooth; }
         </aside>
       </div>
     </section>
+          <section id="contact">
+  <h2 class="sectionTitle">Contact</h2>
+  ...
+</section>
+
 
     <section id="listen">
       <h2 class="sectionTitle">Listen</h2>
@@ -793,45 +771,6 @@ html{ scroll-behavior: smooth; }
               The Deep Ponder is a podcast exploring deep ideas, meaningful conversations, and thoughtful perspectives on life, culture, and the human experience.
 
 
-<!-- LISTEN NOW POPUP -->
-
-
-    <div class="modalBody">
-      <div class="modalActions">
-        <a class="listenBtn listenBtnPrimary"
-           href="https://open.spotify.com/show/6m5KWVuwZJxj13Eh9BsAtY"
-           target="_blank" rel="noreferrer">Spotify</a>
-
-        <a class="listenBtn"
-           href="https://youtube.com/@thedeepponder?si=QyEgxo0nWZCRm5-J"
-           target="_blank" rel="noreferrer">YouTube</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-     
-     
-
-
-
-   
-
-    // Click outside the modal to close
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeModal();
-    });
-
-    // Escape key closes modal
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('isOpen')) {
-        closeModal();
-      }
-    });
-  })();
-  
- 
-</script>
 
 
 </script>
