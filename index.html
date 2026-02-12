@@ -189,17 +189,7 @@
   width:100%;
   display:block;
 }
-    <section id="contact">
-  <h2 class="sectionTitle">Contact</h2>
-
-  <div class="card contactCard">
-    <p class="contactLine">
-      Email us:
-      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
-    </p>
-  </div>
-</section>
-
+    
 
     /* Listen Now popup */
 .modalOverlay{
@@ -495,12 +485,63 @@ html{ scroll-behavior: smooth; }
 <body>
   <a href="#" id="openListenModal" class="btn btnPrimary">Listen Now</a>
 <!-- LISTEN POPUP -->
+<!-- LISTEN POPUP -->
+<div class="modalOverlay" id="listenModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Listen to The Deep Ponder">
+    <div class="modalHeader">
+      <h3 class="modalTitle">Listen to The Deep Ponder</h3>
+      <button class="modalClose" type="button" aria-label="Close">✕</button>
+    </div>
 
+    <div class="modalBody">
+      <div class="modalActions">
+        <a class="listenBtn listenBtnPrimary"
+           href="https://open.spotify.com/show/6m5KWVuwZJxj13Eh9BsAtY"
+           target="_blank" rel="noreferrer">Spotify</a>
+
+        <a class="listenBtn"
+           href="https://youtube.com/@thedeepponder?si=QyEgxo0nWZCRm5-J"
+           target="_blank" rel="noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-  const openBtn = document.getElementById('openListenModal');
-  const modal = document.getElementById('listenModal');
-  const closeBtn = modal ? modal.querySelector('.modalClose') : null;
+  (function () {
+    const openBtn = document.getElementById('openListenModal');
+    const modal = document.getElementById('listenModal');
+    const closeBtn = modal ? modal.querySelector('.modalClose') : null;
 
+    if (!openBtn || !modal || !closeBtn) return;
+
+    function openModal(e) {
+      e.preventDefault();
+      modal.classList.add('isOpen');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('isOpen');
+      document.body.style.overflow = '';
+      openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
+    });
+  })();
+</script>
+
+
+  
   if (openBtn && modal && closeBtn) {
     openBtn.addEventListener('click', (e) => {
      
@@ -595,6 +636,16 @@ html{ scroll-behavior: smooth; }
           <p class="tagline">
            The Deep Ponder is a podcast where we question everything. A place for exploring ideas, conversations, and perspectives that reward attention and reflection.
           </p>
+          <section id="contact">
+  <h2 class="sectionTitle">Contact</h2>
+  <div class="card contactCard">
+    <p class="contactLine">
+      Email us:
+      <a class="contactEmail" href="mailto:thedeepponder@yahoo.com">thedeepponder@yahoo.com</a>
+    </p>
+  </div>
+</section>
+
 
           <div class="ctaRow">
            
@@ -743,12 +794,7 @@ html{ scroll-behavior: smooth; }
 
 
 <!-- LISTEN NOW POPUP -->
-<div class="modalOverlay" id="listenModal">
-  <div class="modal">
-    <div class="modalHeader">
-      <h3 class="modalTitle">Listen to The Deep Ponder</h3>
-      <button class="modalClose" type="button">✕</button>
-    </div>
+
 
     <div class="modalBody">
       <div class="modalActions">
@@ -767,23 +813,9 @@ html{ scroll-behavior: smooth; }
      
      
 
-<script>
-  (function () {
-    
-    const modal = document.getElementById('listenModal');
-    const closeBtn = document.getElementById('closeListenModal');
 
-    if (!openBtn || !modal || !closeBtn) return;
 
    
-    function closeModal() {
-      modal.classList.remove('isOpen');
-      document.body.style.overflow = '';
-      openBtn.focus();
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
 
     // Click outside the modal to close
     modal.addEventListener('click', function (e) {
