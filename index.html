@@ -521,39 +521,7 @@ html{ scroll-behavior: smooth; }
     </div>
   </div>
 </div>
-<script>
-  (function () {
-    const openBtn = document.getElementById('openListenModal');
-    const modal = document.getElementById('listenModal');
-    const closeBtn = modal ? modal.querySelector('.modalClose') : null;
 
-    if (!openBtn || !modal || !closeBtn) return;
-
-    function openModal(e) {
-      e.preventDefault();
-      modal.classList.add('isOpen');
-      document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    }
-
-    function closeModal() {
-      modal.classList.remove('isOpen');
-      document.body.style.overflow = '';
-      openBtn.focus();
-    }
-
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
-    });
-  })();
-</script>
 
 
   
@@ -805,3 +773,42 @@ html{ scroll-behavior: smooth; }
 
 
 </script>
+            <script>
+  (function () {
+    const openBtn = document.getElementById('openListenModal');
+    const modal = document.getElementById('listenModal');
+    const closeBtn = modal ? modal.querySelector('.modalClose') : null;
+
+    if (!openBtn || !modal || !closeBtn) return;
+
+    function openModal(e) {
+      e.preventDefault();
+      modal.classList.add('isOpen');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('isOpen');
+      document.body.style.overflow = '';
+      openBtn.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('isOpen')) closeModal();
+    });
+  })();
+</script>
+         </body>
+          </div>
+
+        </div>
+        
+      </html>
